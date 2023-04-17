@@ -1,8 +1,12 @@
 import { Component } from 'react'
 import { contactService } from '../services/contact.service'
-import { Link } from 'react-router-dom'
+import { TransferFund } from '../components/TransferFund'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { transferCoins,addMove } from '../store/actions/user.actions'
 
-export class ContactDetails extends Component {
+
+class _ContactDetails extends Component {
     state = {
         contact: null,
     }
@@ -30,8 +34,15 @@ export class ContactDetails extends Component {
         this.props.history.push('/contacts')
     }
 
+    onTransferCoins = (amount) => {
+        const { contact } = this.state
+        this.props.transferCoins(amount)
+        this.props.addMove(contact,amount)
+    }
+
     render() {
         const { contact } = this.state
+        const { balance } = this.props.loggedInUser
         if (!contact) return <div>Loading...</div>
         return (
             <section className='contact-details'>
@@ -45,9 +56,22 @@ export class ContactDetails extends Component {
                 <section>
                     <h3>email: {contact.email}</h3>
                 </section>
+                <TransferFund contact={contact} maxCoins={balance} onTransferCoins={this.onTransferCoins} />
                 <button onClick={this.onBack}>Back</button>
 
             </section>
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    loggedInUser: state.userModule.loggedInUser
+})
+
+const mapDispatchToProps = {
+    transferCoins,
+    addMove,
+}
+
+export const ContactDetails = connect(mapStateToProps,mapDispatchToProps)(withRouter(_ContactDetails))
+

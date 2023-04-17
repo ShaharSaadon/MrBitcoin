@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 function _AppHeader(props) {
     console.log('props:', props)
+    
     function onBack() {
         props.history.goBack()
     }

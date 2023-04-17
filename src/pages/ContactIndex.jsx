@@ -5,7 +5,6 @@ import {ContactFilter} from '../components/ContactFilter'
 import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { loadContacts,removeContact,setFilterBy } from '../store/actions/contact.actions'
-import { sendMoney } from '../store/actions/user.actions'
 
 class _ContactIndex extends Component {
 
@@ -30,9 +29,7 @@ class _ContactIndex extends Component {
 
     }
 
-    onSendMoney = () => {
-        this.props.sendMoney(5)
-    }
+
     
     render() {
         const { contacts,filterBy } = this.props
@@ -42,7 +39,6 @@ class _ContactIndex extends Component {
                 <ContactFilter filterBy={filterBy} onChangeFilter={this.onChangeFilter}/>
                 <Link to="/contact/edit">Add contact</Link>
                 <ContactList contacts={contacts} onRemoveContact={this.onRemoveContact}/>
-                <button onClick={this.onSendMoney}>Spend Balance</button>
 
             </section>
         )
@@ -58,7 +54,6 @@ const mapDispatchToProps = {
 loadContacts,
 removeContact,
 setFilterBy,
-sendMoney,
 } 
 
 export const ContactIndex = connect(mapStateToProps,mapDispatchToProps)(_ContactIndex) 

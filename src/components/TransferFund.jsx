@@ -1,14 +1,10 @@
 import { Component } from 'react'
 import { userService } from '../services/user.service'
 
-export class Signup extends Component {
+export class TransferFund extends Component {
 
     state = {
-        newUser: {
-            name: '',
-            password: '',
-            email: '',
-        }
+        amount: 0,
     }
     componentDidMount() {
     }
@@ -17,39 +13,23 @@ export class Signup extends Component {
     }
 
     handleChange = ({ target }) => {
-        const field = target.name
-        let value = target.value
-
-        this.setState(({ newUser }) => ({ newUser: { ...newUser, [field]: value } }));
-
-
-    }
-
-    onSignup = async (ev) => {
-        ev.preventDefault()
-        try {
-            await userService.signup({...this.state.newUser })
-            this.props.history.push('/contacts')
-        } catch (error) {
-            console.log('error:', error)
-        }
+        const amount = target.value
+        if (amount >= this.props.maxCoins) this.setState({ amount: this.props.maxCoins })
+        else if (amount < 0) this.setState({ amount: 0 })
+        else this.setState({ amount })
     }
 
     render() {
-        const { newUser } = this.state
+        const { contact, onTransferCoins } = this.props
+        const { amount } = this.state
         return (
 
-            <section className='signup-container'>
-                <form onSubmit={this.onSignup} >
-
-                    <h2>please enter your name</h2>
-                    <label htmlFor="name">name</label>
-                    <input value={newUser.name} onChange={this.handleChange} type="text" name="name" id="name" />
-                    <label htmlFor="name">password</label>
-                    <input value={newUser.password} onChange={this.handleChange} type="password" name="password" id="password" />
-                    <label htmlFor="name">email</label>
-                    <input value={newUser.email} onChange={this.handleChange} type="text" name="email" id="email" />
-                    <button>Signup</button>
+            <section className='transfer-box'>
+                <form onSubmit={() => onTransferCoins(amount)}>
+                    <p>Transfer Coins to {contact.name}</p>
+                    <label htmlFor="amount">amount</label>
+                    <input value={amount} onChange={this.handleChange} type="number" name="amount" id="amount" />
+                    <button>transfer</button>
                 </form>
             </section>
         )
