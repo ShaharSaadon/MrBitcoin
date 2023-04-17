@@ -1,0 +1,4 @@
+.charts-container{
+    @include grid-main-container();
+    position: relative;
+}

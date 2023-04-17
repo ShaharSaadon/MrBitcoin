@@ -1,0 +1,9 @@
+.main-container {
+@include grid-main-container()
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

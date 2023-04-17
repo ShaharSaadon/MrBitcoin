@@ -1,0 +1,16 @@
+.contact-preview {
+    display: flex;
+    border-radius: 10px;
+    margin-block-end: 20px;
+    text-align: center;
+    &:hover {
+        cursor: pointer;
+    }
+
+    button {
+        margin: 0;
+        padding: 4px;
+        border-radius: 100%;
+        border: 1px solid black;
+    }
+}
