@@ -25,7 +25,7 @@ export class TransferFund extends Component {
         return (
 
             <section className='transfer-box'>
-                <form onSubmit={() => onTransferCoins(amount)}>
+                <form onSubmit={() => onTransferCoins(amount,contact)}>
                     <p>Transfer Coins to {contact.name}</p>
                     <label htmlFor="amount">amount</label>
                     <input value={amount} onChange={this.handleChange} type="number" name="amount" id="amount" />

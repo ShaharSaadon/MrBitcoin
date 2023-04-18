@@ -1,9 +1,10 @@
 import { Component } from 'react'
 import { contactService } from '../services/contact.service'
-import { TransferFund } from '../components/TransferFund'
+import  {TransferFund}  from '../components/TransferFund'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { transferCoins,addMove } from '../store/actions/user.actions'
+import MovesList from '../components/MovesList'
 
 
 class _ContactDetails extends Component {
@@ -34,15 +35,21 @@ class _ContactDetails extends Component {
         this.props.history.push('/contacts')
     }
 
-    onTransferCoins = (amount) => {
-        const { contact } = this.state
-        this.props.transferCoins(amount)
-        this.props.addMove(contact,amount)
+    onTransferCoins = (amount,contact) => {
+        this.props.transferCoins(amount,contact)
     }
+
+    get filterMoves() {
+        const { contact } = this.state
+        const { user } = this.props
+        console.log('user:', user)
+        return user.moves.filter((move) => move.toId === contact._id)
+      }
+    
 
     render() {
         const { contact } = this.state
-        const { balance } = this.props.loggedInUser
+        const { balance } = this.props.user
         if (!contact) return <div>Loading...</div>
         return (
             <section className='contact-details'>
@@ -58,6 +65,7 @@ class _ContactDetails extends Component {
                 </section>
                 <TransferFund contact={contact} maxCoins={balance} onTransferCoins={this.onTransferCoins} />
                 <button onClick={this.onBack}>Back</button>
+                <MovesList title={'Your Moves:'} moves={this.filterMoves} />
 
             </section>
         )
@@ -65,12 +73,11 @@ class _ContactDetails extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    loggedInUser: state.userModule.loggedInUser
+    user: state.userModule.loggedInUser
 })
 
 const mapDispatchToProps = {
     transferCoins,
-    addMove,
 }
 
 export const ContactDetails = connect(mapStateToProps,mapDispatchToProps)(withRouter(_ContactDetails))

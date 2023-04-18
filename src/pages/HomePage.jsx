@@ -10,16 +10,13 @@ export class HomePage extends Component {
             txt: '',
         },
         isShow: true,
-        tradeVolume: [],
     }
 
     async componentDidMount() {
         try {
             const user = userService.getUser()
             const bitcoinRate = await bitcoinService.getRate()
-            let tradeVolume = await bitcoinService.getTradeVolume()
-            tradeVolume = tradeVolume.map(data => data.y)
-            this.setState({ bitcoinRate, user, tradeVolume })
+            this.setState({ bitcoinRate, user })
         } catch (err) {
             console.log('err:', err)
 

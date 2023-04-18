@@ -4,8 +4,6 @@ export const bitcoinService = {
     getRate,
     getMarketPrice,
     getTradeVolume,
-    // getConfirmedTransactions,
-
 }
 
 async function getRate() {
@@ -32,8 +30,10 @@ async function getMarketPrice() {
 
 async function getTradeVolume() {
     let tradeVolume = null
+    console.log('hello:')
     try {
         tradeVolume = await axios.get('https://api.blockchain.info/charts/trade-volume?timespan=5months&format=json&cors=true')
+        console.log('tradeVolume2:', tradeVolume)
     } catch (err) {
         console.log('err:', err)
     }

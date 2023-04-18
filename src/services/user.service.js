@@ -5,7 +5,7 @@ export const userService = {
     getUser,
     signup,
     getLoggedinUser,
-    addMove,
+    transferCoins,
     saveLocalUser,
 }
 
@@ -28,7 +28,10 @@ function saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || {
+        name: 'Jorji',
+        balance: 100
+    }
 }
 
 function getUser() {
@@ -39,25 +42,19 @@ function getUser() {
     }
 }
 
-function _getEmptyMove() {
+function _createMove(amount,contact) {
     return {
-        toId: makeId(),
-        to: '',
+        toId: contact._id,
+        to: contact.name,
         createdAt: Date.now(),
-        amount: 0,
+        amount,
     }
 }
 
-function addMove(contact, amount) {
-    const newMove = _getEmptyMove();
-    newMove.to = contact;
-    newMove.amount = amount;
+function transferCoins(amount,contact) {
     const loggedInUser = getLoggedinUser();
-    const updatedUser = {
-      ...loggedInUser,
-      moves: [...loggedInUser.moves, newMove]
-    };
-    saveLocalUser(updatedUser);
-    return updatedUser;
-  
+    const newMove = _createMove(amount,contact);
+    loggedInUser.moves.unshift(newMove)
+    loggedInUser.balance -= amount
+    return saveLocalUser(loggedInUser);
 }

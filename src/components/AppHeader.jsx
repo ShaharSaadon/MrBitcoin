@@ -15,9 +15,10 @@ function _AppHeader(props) {
                 <div className="info flex justify-between items-center">
                     <div className="logo">MrCoin</div>
                     <nav>
-                        <NavLink to="/contacts" > Contacts </NavLink> |
-                        <NavLink to="/charts"> Charts </NavLink> |
-                        <NavLink exact to="/" > Home </NavLink>
+                        <NavLink exact to="/" > Home</NavLink> |
+                        <NavLink to="/charts"> Stats </NavLink> |
+                        <NavLink to="/contacts" > Contacts </NavLink> 
+                        <NavLink to="/user" > user </NavLink> 
 
                     </nav>
                     <div className="details flex-column">
