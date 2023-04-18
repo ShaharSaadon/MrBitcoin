@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MrBitcoin/static/css/main.32a2b6cb.css",
-    "main.js": "/MrBitcoin/static/js/main.cd49d38a.js",
+    "main.css": "/MrBitcoin/static/css/main.5c8ff9d6.css",
+    "main.js": "/MrBitcoin/static/js/main.c5be032e.js",
     "static/media/Poppins-Regular.ttf": "/MrBitcoin/static/media/Poppins-Regular.35d26b781dc5fda684cc.ttf",
     "static/media/bannerClock.png": "/MrBitcoin/static/media/bannerClock.a94dacef8508cc767286.png",
     "static/media/bannerMap.png": "/MrBitcoin/static/media/bannerMap.b07dc3c440308e9c4853.png",
@@ -11,11 +11,11 @@
     "static/media/bannerBox.png": "/MrBitcoin/static/media/bannerBox.ed1a485fc0767a1c298c.png",
     "static/media/bannerWallet.png": "/MrBitcoin/static/media/bannerWallet.de4ec81cd01eb12acc68.png",
     "index.html": "/MrBitcoin/index.html",
-    "main.32a2b6cb.css.map": "/MrBitcoin/static/css/main.32a2b6cb.css.map",
-    "main.cd49d38a.js.map": "/MrBitcoin/static/js/main.cd49d38a.js.map"
+    "main.5c8ff9d6.css.map": "/MrBitcoin/static/css/main.5c8ff9d6.css.map",
+    "main.c5be032e.js.map": "/MrBitcoin/static/js/main.c5be032e.js.map"
   },
   "entrypoints": [
-    "static/css/main.32a2b6cb.css",
-    "static/js/main.cd49d38a.js"
+    "static/css/main.5c8ff9d6.css",
+    "static/js/main.c5be032e.js"
   ]
 }
