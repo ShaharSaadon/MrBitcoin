@@ -1,0 +1,50 @@
+header{
+    background-color: $white;
+    color: $header-text;
+    position: relative;
+    z-index: 10;
+}
+
+.main-header{
+    @include grid-main-container();
+    border-bottom: 1px solid black;
+    z-index: 10;
+
+    .info{
+        padding: 8px 0;
+    }
+
+    .nav-link{
+    padding: 0 10px;
+    text-transform: capitalize;
+    font-weight: 600;
+    transition: .3s;
+    &:hover{
+        color:$blue;
+        text-decoration: none;
+    }
+    }
+    .details{
+        align-items: center;
+    }
+
+    .signup{
+        @include cmn-btn();
+    }
+
+    .btn-back{
+        @include cmn-btn();
+    }
+
+    .btn-logout{
+        @include cmn-btn();
+        margin-inline-start: 24px;
+    }
+    .active{
+        font-weight: 800;
+    }
+    .logo{
+        font-size:52px;
+        font-weight: 700;
+    }
+}

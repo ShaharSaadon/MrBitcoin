@@ -10,3 +10,4 @@ export function transferCoins(amount, contact) {
         }
     }
 }
+

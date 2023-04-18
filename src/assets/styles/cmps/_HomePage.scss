@@ -1,0 +1,219 @@
+.main-content {
+    background-color: $home-page;
+    // color: $text-color;
+    @include grid-main-container();
+    position: relative;
+
+    .content {
+
+        position: absolute;
+        display: grid;
+        padding: 3em;
+        grid-column-gap: 10%;
+        grid-template-columns: 40% 30%;
+        grid-template-rows: auto;
+        z-index: 10;
+
+        grid-template-areas:
+            "subheading  container"
+            "heading  container"
+            "ticker  container"
+            "bitcoin container";
+
+    }
+
+    .send-container {
+        background-color: $white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 2px 3.464px 24px 0px rgba(106, 105, 194, 0.25);
+
+        .header {
+            @include cmn-box();
+            margin-block-end: 2em;
+
+            .money {
+                align-items: center;
+                background-color: $white;
+                border-radius: 10px;
+                padding: 10px 20px;
+                font-weight: 750;
+
+                .icon-usd {
+                    border-radius: 50%;
+                    width: 25px;
+                    margin-inline-end: 12px;
+                }
+            }
+
+
+        }
+
+        .main {
+
+            .money-transfer {
+                display: grid;
+                grid-template-columns: 10% 40% 40%;
+                row-gap: 12px;
+
+                .icon {
+                    // span {
+                    //     display: flex;
+                    //     align-items: center;
+                    //     justify-content: center;
+                    //     background-color: $light-blue;
+                    //     border-radius: 50%;
+                    //     width: 16px;
+                    //     padding: 0;
+                    //     height: 16px;
+                    //     font-weight: 600;
+                    // }
+                }
+
+
+            }
+
+            .receiver {
+                @include cmn-box();
+                margin-block-start: 2em;
+
+                .money {
+                    align-items: center;
+                    background-color: $white;
+                    border-radius: 10px;
+                    padding: 10px 20px;
+                    font-weight: 750;
+
+                    .icon-usd {
+                        border-radius: 50%;
+                        width: 25px;
+                        margin-inline-end: 12px;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            .btn-started {
+                @include cmn-btn();
+                width: 100%;
+                font-size: 16px;
+                height: 42px;
+                margin-block-start: 16px;
+            }
+        }
+    }
+
+    .send-container {
+        grid-area: container;
+    }
+
+    .heading {
+        grid-area: heading;
+
+        font-size: 2em;
+        font-weight: 800;
+        color:$dark-blue;
+
+        .span {
+            font-weight: 700;
+        }
+
+        // margin-block-end: 1em;
+    }
+
+    .subheading {
+        grid-area: subheading;
+        font-size: 1.2em;
+        color: $blue;
+        // margin-block-end: 3em;
+
+    }
+
+    button {
+        @include button();
+    }
+
+    .ticker {
+        grid-area: ticker;
+    }
+
+    .bitcoin {
+        grid-area: bitcoin;
+
+        .bitcoin-box {
+            border: 3px solid white;
+            width: max-content;
+            padding: 8px 12px;
+            border-radius: 20px;
+        }
+    }
+
+    .banners-area {
+        position: relative;
+        height: 90vh;
+
+        .banner-map {
+            position: absolute;
+            top: 0;
+            right: 0;
+            max-height: 90vh;
+        }
+
+        .banner-clock {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            z-index: 1;
+        }
+
+        .banner-human {
+            position: absolute;
+            bottom: 0px;
+            right: 0;
+            animation: ripple2Ani 4s linear infinite;
+            z-index: 2;
+        }
+
+        .banner-wallet {
+            position: absolute;
+            top: 0px;
+            left: calc(55%);
+            animation: ripple2Ani 4s linear infinite;
+        }
+
+        .banner-box {
+            position: absolute;
+            width: 200px;
+            bottom: 0px;
+            left: 5%;
+            animation: ripple2Ani 4s linear infinite;
+        }
+
+        .banner-rocket {
+            position: absolute;
+            bottom: 0px;
+            left: calc(50%);
+            width: 100px;
+            animation: ripple2Ani 4s linear infinite;
+        }
+    }
+
+    @keyframes ripple2Ani {
+        0% {
+            transform: translate(0px, 0px);
+        }
+
+        33% {
+            transform: translate(-5px, -5px);
+        }
+
+        66% {
+            transform: translate(5px, 5px);
+        }
+
+        100% {
+            transform: translate(0px, 0px);
+        }
+    }
+}
