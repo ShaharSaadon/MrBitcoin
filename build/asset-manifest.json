@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/MrBitcoin/static/css/main.6309bf5e.css",
+    "main.js": "/MrBitcoin/static/js/main.ca5ad843.js",
+    "index.html": "/MrBitcoin/index.html",
+    "main.6309bf5e.css.map": "/MrBitcoin/static/css/main.6309bf5e.css.map",
+    "main.ca5ad843.js.map": "/MrBitcoin/static/js/main.ca5ad843.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6309bf5e.css",
+    "static/js/main.ca5ad843.js"
+  ]
+}
