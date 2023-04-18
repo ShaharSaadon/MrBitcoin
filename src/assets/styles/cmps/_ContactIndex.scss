@@ -1,0 +1,21 @@
+.contacts-container{
+    .contact-filter{
+        display: flex;
+        justify-content: center;
+        input{
+            height: 44px;
+            border-radius: 10px;
+            align-content: center;
+            text-align: center;
+            margin:4px;
+            border: 1px solid black;
+        }
+    }
+    
+    .tools{
+        background-color: $light-blue;
+        .add-contact{
+            @include cmn-btn();
+        }
+    }
+}

@@ -9,6 +9,7 @@ import { loadContacts,removeContact,setFilterBy } from '../store/actions/contact
 class _ContactIndex extends Component {
 
     componentDidMount() {
+        document.title = 'Contacts';
         console.log('this.props:', this.props)
         this.props.loadContacts()
     }
@@ -36,8 +37,10 @@ class _ContactIndex extends Component {
         if (!contacts) return <div>Loading...</div>
         return (
             <section className='contacts-container'>
+                <div className="tools flex justify-center items-center">
                 <ContactFilter filterBy={filterBy} onChangeFilter={this.onChangeFilter}/>
-                <Link to="/contact/edit">Add contact</Link>
+                <Link to="/contact/edit" class="add-contact">Add contact</Link>
+                </div>
                 <ContactList contacts={contacts} onRemoveContact={this.onRemoveContact}/>
 
             </section>

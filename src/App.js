@@ -7,6 +7,7 @@ import { Charts } from './components/Charts';
 import { ContactDetails } from './pages/ContactDetails';
 import { Signup } from './pages/Signup';
 import { UserDetails } from './pages/UserDetails';
+import {ContactEdit} from './pages/ContactEdit'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <main className="main-container">
           {/* MORE SPECIFIC SHOW FIRST */}
           <Switch>
-            <Route path="/contact/edit/:id?" component={UserDetails} />
+            <Route path="/contact/edit/:id?" component={ContactEdit} />
             <Route path="/contact/:id" component={ContactDetails} />
             <Route path="/user" component={UserDetails} />
             <Route path="/contacts" component={ContactIndex} />

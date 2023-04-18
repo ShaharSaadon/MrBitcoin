@@ -21,8 +21,8 @@ function _AppHeader(props) {
                     <nav>
                         <ReactSVG src={svgs.search} />
                         <NavLink exact to="/" className="nav-link">Home</NavLink>
-                        <NavLink to="/charts" className="nav-link"> Stats </NavLink>
                         <NavLink to="/contacts" className="nav-link"> Contacts </NavLink>
+                        <NavLink to="/charts" className="nav-link"> Stats </NavLink>
                         <NavLink to="/user" className="nav-link"> user </NavLink>
 
                     </nav>

@@ -28,7 +28,7 @@
     }
 }
 
-@mixin cmn-btn {
+@mixin cmn-btn($color:$blue) {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -39,13 +39,14 @@
     border-radius: 10px;
     font-weight: 600;
     
-    background-color: $blue;
+    background-color: $color;
     color: $white;
     transition: .3s;
     &:hover{
         color: $blue;
         background-color: $white;
         cursor: pointer;
+        text-decoration: none;
     }
 
 }

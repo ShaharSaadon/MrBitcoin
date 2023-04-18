@@ -1,16 +1,32 @@
 .contact-preview {
     display: flex;
-    border-radius: 10px;
-    margin-block-end: 20px;
-    text-align: center;
-    &:hover {
-        cursor: pointer;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: .3);
+    .info{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+    img{
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid rgba($color: #000000, $alpha: .3);
     }
 
-    button {
-        margin: 0;
-        padding: 4px;
-        border-radius: 100%;
-        border: 1px solid black;
+    .actions{
+        display: flex;
+        gap:12px;
+        .btn-delete{
+            @include cmn-btn($red);
+        }
+        .edit{
+            @include cmn-btn($yellow);
+            height: 38px;
+        }
+        .details{
+            @include cmn-btn($blue);
+            height: 38px;
+        }
     }
 }

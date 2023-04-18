@@ -22,6 +22,7 @@ export class HomePage extends Component {
 
     async componentDidMount() {
         try {
+            document.title = 'MrBitcoin Home Page';
             const user = userService.getUser()
             const bitcoinRate = await bitcoinService.getRate()
             this.setState({ bitcoinRate, user })

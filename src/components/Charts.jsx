@@ -9,6 +9,8 @@ export class Charts extends Component {
 
     componentDidMount() {
         this.loadTradeVolume()
+        document.title = 'Stats';
+
     }
 
     loadTradeVolume = async () => {
