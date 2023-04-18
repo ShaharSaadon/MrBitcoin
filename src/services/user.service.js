@@ -7,6 +7,7 @@ export const userService = {
     getLoggedinUser,
     transferCoins,
     saveLocalUser,
+    logout,
 }
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
@@ -33,6 +34,10 @@ function getLoggedinUser() {
         balance: 100,
         moves: [],
     }
+}
+
+function logout(){
+    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 }
 
 function getUser() {

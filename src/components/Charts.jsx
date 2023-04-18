@@ -28,10 +28,7 @@ export class Charts extends Component {
         return (
             <section className="charts-container">
                 <Sparklines data={tradeVolume}>
-                    <SparklinesLine color="blue" />
-                    <SparklinesReferenceLine type="mean" />
-                    <SparklinesSpots size={2} style={{ fill: "blue" }} />
-                    <SparklinesNormalBand style={{ fill: "rgba(0, 0, 255, 0.1)" }} />
+                    <SparklinesLine color="black" />
                 </Sparklines>
 
                 <div style={{ textAlign: "center" }}>Time</div>

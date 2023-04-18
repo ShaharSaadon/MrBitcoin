@@ -1,7 +1,14 @@
 .contact-details{
-border: 1px solid black;
+justify-self: center;
 align-items: center;
 display: flex;
 flex-direction: column;
 width: max-content;
+}
+
+.btn-back{
+    @include cmn-btn($red);
+    position: absolute;
+    left:20%;
+    margin-block-start: 2%;
 }

@@ -2,6 +2,9 @@ import { Link, NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { ReactSVG } from 'react-svg';
 import { svgs } from '../services/svg.service'
+import { userService } from '../services/user.service';
+import { logout} from '../store/actions/user.actions'
+
 
 
 function _AppHeader(props) {
@@ -11,10 +14,16 @@ function _AppHeader(props) {
         props.history.goBack()
     }
 
+    function handleLogout() {
+        console.log('this.props.logout:', props.logout)
+        props.logout()
+    }
+
+
 
     const { name, balance } = props.user
     return (
-        <section className='full'>
+        <section className="full">
             <header className="main-header">
                 <div className="info flex justify-between items-center">
                     <div className="logo">MrBitCoin</div>
@@ -31,14 +40,14 @@ function _AppHeader(props) {
                         <h4>Coins:{balance} </h4>
                         <NavLink exact to="/signup" className="signup"> Signup </NavLink> */}
 
-                        {name && balance ? (
+                        {name ? (
                             <>
                                 <div className="user-details flex">
                                     <div className="box flex flex-column items-center">
                                         <h4>Welcome, {name}!</h4>
                                         <h4>You got {balance} coins</h4>
                                     </div>
-                                    <button className="btn-logout" >logout</button>
+                                    <button className="btn-logout" onClick={handleLogout} >logout</button>
                                 </div>
                             </>
                         ) : (
@@ -60,6 +69,10 @@ const mapStateToProps = (state) => ({
     user: state.userModule.loggedInUser
 })
 
-export const AppHeader = connect(mapStateToProps)(withRouter(_AppHeader))
+
+const mapDispatchToProps = {
+    logout,
+}
+export const AppHeader = connect(mapStateToProps,mapDispatchToProps)(withRouter(_AppHeader))
 
 

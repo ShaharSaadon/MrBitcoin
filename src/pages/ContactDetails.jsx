@@ -1,9 +1,9 @@
 import { Component } from 'react'
 import { contactService } from '../services/contact.service'
-import  {TransferFund}  from '../components/TransferFund'
+import { TransferFund } from '../components/TransferFund'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { transferCoins,addMove } from '../store/actions/user.actions'
+import { transferCoins, addMove } from '../store/actions/user.actions'
 import MovesList from '../components/MovesList'
 
 
@@ -35,17 +35,18 @@ class _ContactDetails extends Component {
         this.props.history.push('/contacts')
     }
 
-    onTransferCoins = (amount,contact) => {
-        this.props.transferCoins(amount,contact)
+    onTransferCoins = (amount, contact) => {
+        if (!amount) return
+        this.props.transferCoins(amount, contact)
     }
 
     get filterMoves() {
         const { contact } = this.state
         const { user } = this.props
         console.log('user:', user)
-        return user.moves.filter((move) => move.toId === contact._id)
+        return user.moves.filter((move) => move.toId === contact._id).splice(0, 5)
     }
-    
+
 
     render() {
         const { contact } = this.state
@@ -53,18 +54,20 @@ class _ContactDetails extends Component {
         if (!contact) return <div>Loading...</div>
         return (
             <section className='contact-details'>
+
+                <button onClick={this.onBack} class="btn-back">Back</button>
+
                 <img src={`https://robohash.org/${contact._id}`} />
                 <section>
-                    <h3>name: {contact.name}</h3>
+                    <h1>name: {contact.name}</h1>
                 </section>
                 <section>
-                    <h3>phone: {contact.phone}</h3>
+                    <p>phone: {contact.phone}</p>
                 </section>
                 <section>
-                    <h3>email: {contact.email}</h3>
+                    <p>email: {contact.email}</p>
                 </section>
                 <TransferFund contact={contact} maxCoins={balance} onTransferCoins={this.onTransferCoins} />
-                <button onClick={this.onBack}>Back</button>
                 <MovesList title={'Your Moves:'} moves={this.filterMoves} />
 
             </section>
@@ -80,5 +83,5 @@ const mapDispatchToProps = {
     transferCoins,
 }
 
-export const ContactDetails = connect(mapStateToProps,mapDispatchToProps)(withRouter(_ContactDetails))
+export const ContactDetails = connect(mapStateToProps, mapDispatchToProps)(withRouter(_ContactDetails))
 

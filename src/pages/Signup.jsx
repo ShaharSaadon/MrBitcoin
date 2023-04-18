@@ -1,7 +1,10 @@
 import { Component } from 'react'
 import { userService } from '../services/user.service'
+import { login} from '../store/actions/user.actions'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-export class Signup extends Component {
+class _Signup extends Component {
 
     state = {
         newUser: {
@@ -21,7 +24,8 @@ export class Signup extends Component {
     onSignup = async (ev) => {
         ev.preventDefault()
         try {
-            await userService.signup({...this.state.newUser })
+           await userService.signup({...this.state.newUser })
+            this.props.login()
             this.props.history.push('/contacts')
         } catch (error) {
             console.log('error:', error)
@@ -48,3 +52,13 @@ export class Signup extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => ({
+    user: state.userModule.loggedInUser
+})
+
+
+const mapDispatchToProps = {
+    login,
+}
+export const Signup = connect(mapStateToProps,mapDispatchToProps)(withRouter(_Signup))
