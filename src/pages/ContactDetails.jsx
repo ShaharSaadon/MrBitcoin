@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { contactService } from '../services/contact.service'
 import  {TransferFund}  from '../components/TransferFund'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { transferCoins,addMove } from '../store/actions/user.actions'
 import MovesList from '../components/MovesList'
@@ -44,7 +44,7 @@ class _ContactDetails extends Component {
         const { user } = this.props
         console.log('user:', user)
         return user.moves.filter((move) => move.toId === contact._id)
-      }
+    }
     
 
     render() {

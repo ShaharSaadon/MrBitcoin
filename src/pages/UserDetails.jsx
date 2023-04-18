@@ -11,6 +11,7 @@ class _UserDetails extends Component {
     bitcoinRate: null,
   }
   async componentDidMount() {
+    //add routing guards
     const bitcoinRate = await bitcoinService.getRate()
     this.setState({ bitcoinRate })
   }

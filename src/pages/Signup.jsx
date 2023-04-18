@@ -10,19 +10,12 @@ export class Signup extends Component {
             email: '',
         }
     }
-    componentDidMount() {
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-    }
 
     handleChange = ({ target }) => {
         const field = target.name
         let value = target.value
 
         this.setState(({ newUser }) => ({ newUser: { ...newUser, [field]: value } }));
-
-
     }
 
     onSignup = async (ev) => {
