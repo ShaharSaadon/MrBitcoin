@@ -61,11 +61,11 @@ export class HomePage extends Component {
                             </div>
                             <div className="main">
                                 <div className="money-transfer" >
-                                    <div className="icon">AA</div>
+                                    <div className="icon"></div>
                                     <p>Show calculation</p>
                                     <span></span>
-                                    <div className="icon"><span>-</span></div><p> 10 <span>USD</span></p> <p>Our fee</p>
-                                    <div className="icon"><span>=</span></div><p> 1000 <span>USD</span></p> <p>We'll Convert</p>
+                                    <div className="icon"><span>-</span></div><p> 4.49 <span>USD</span></p> <p>Our fee</p>
+                                    <div className="icon"><span>=</span></div><p> 995.51 <span>USD</span></p> <p>We'll Convert</p>
                                 </div>
 
                                 <div className="receiver flex justify-between">

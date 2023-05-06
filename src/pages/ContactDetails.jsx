@@ -66,6 +66,7 @@ class _ContactDetails extends Component {
                 </section>
                 <section>
                     <p>email: {contact.email}</p>
+                    <p>{contact.balance}</p>
                 </section>
                 <TransferFund contact={contact} maxCoins={balance} onTransferCoins={this.onTransferCoins} />
                 <MovesList title={'Your Moves:'} moves={this.filterMoves} />
